@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { getDogs } from "../actions";
+import Select from "./Select";
 
 function DogGrid(props) {
   const [api, setAPI] = useState(`https://dog.ceo/api/breeds/image/random/100`);
@@ -20,14 +21,7 @@ function DogGrid(props) {
     <>
       <div className="header">
         <h1>All The Doggos</h1>
-        <form onSubmit={fetchDogs}>
-          <input
-            type="text"
-            placeholder="...search breeds"
-            onChange={handleChange}
-          />
-          <button type="submit">Fetch Dogs!</button>
-        </form>
+        <Select handleChange={handleChange} fetchDogs={fetchDogs} />
       </div>
       {props.isFetching && <p className="fetching">Fetching...</p>}
       <div className="grid">
