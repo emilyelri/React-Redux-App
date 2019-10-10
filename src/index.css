@@ -14,6 +14,7 @@ code {
 
 .header {
   background-color: white;
+  background-image: url("./images/header-bg.jpg");
   top: -40px;
   width: 98%;
   margin: 30px 1%;
