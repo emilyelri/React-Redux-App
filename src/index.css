@@ -13,7 +13,7 @@ code {
 }
 
 .header {
-  background-color: white;
+  color: white;
   background-image: url("./images/header-bg.jpg");
   top: -40px;
   width: 98%;
@@ -32,18 +32,15 @@ code {
 }
 
 .grid {
-  margin-top: 150px;
+  margin: 150px auto 0;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
 }
 
-.container {
-  padding: 10px;
-}
-
 .dog {
   width: 400px;
+  margin: 35px;
 }
 
 .fetching {

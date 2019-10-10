@@ -19,8 +19,10 @@ function DogGrid(props) {
   };
 
   const masonryOptions = {
-    transitionDuration: 0
+    transitionDuration: 200,
+    columnWidth: 60
   };
+
   return (
     <>
       <div className="header">
@@ -37,7 +39,7 @@ function DogGrid(props) {
           updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
         >
           {props.data.map(dog => (
-            <div className="container">
+            <div>
               <img className="dog" key={dog} src={dog} />
             </div>
           ))}
