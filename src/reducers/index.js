@@ -11,7 +11,7 @@ const initialState = {
 };
 
 const dogReducer = (state = initialState, action) => {
-  console.log("Reducer fired: ", action);
+  // console.log("Reducer fired: ", action);
   switch (action.type) {
     case FETCH_DOGS_START:
       return {

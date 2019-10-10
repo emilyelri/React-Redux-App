@@ -1,7 +1,7 @@
 import React from "react";
 import DogGrid from "./components/DogGrid";
 
-function App() {
+function App(props) {
   return (
     <div className="App">
       <DogGrid />

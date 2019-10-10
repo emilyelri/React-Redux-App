@@ -3,15 +3,17 @@ import { connect } from "react-redux";
 import { getDogs } from "../actions";
 
 function DogGrid(props) {
-  const [input, setInput] = useState("");
+  const [api, setAPI] = useState(`https://dog.ceo/api/breeds/image/random/100`);
 
   const fetchDogs = e => {
     e.preventDefault();
-    props.getDogs();
+    props.getDogs(api);
+    console.log("Selected dogAPI: ", api);
   };
 
   const handleChange = e => {
-    setInput(e.target.value);
+    console.log(e.target.value);
+    setAPI(`https://dog.ceo/api/breed/${e.target.value}/images`);
   };
 
   return (
@@ -19,11 +21,15 @@ function DogGrid(props) {
       <div className="header">
         <h1>All The Doggos</h1>
         <form onSubmit={fetchDogs}>
-          <input type="text" value={input} onChange={handleChange} />
+          <input
+            type="text"
+            placeholder="...search breeds"
+            onChange={handleChange}
+          />
           <button type="submit">Fetch Dogs!</button>
         </form>
-        {props.isFetching && <p>Fetching...</p>}
       </div>
+      {props.isFetching && <p className="fetching">Fetching...</p>}
       <div className="grid">
         {props.data.map(dog => (
           <div className="container">

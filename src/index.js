@@ -9,7 +9,7 @@ import dogReducer from "./reducers";
 import App from "./App";
 import "./index.css";
 
-const store = createStore(dogReducer, applyMiddleware(thunk, logger));
+const store = createStore(dogReducer, applyMiddleware(thunk /*, logger*/));
 
 ReactDOM.render(
   <Provider store={store}>

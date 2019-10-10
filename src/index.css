@@ -33,9 +33,24 @@ code {
 
 .container {
   padding: 10px;
-  border: 1px solid black;
 }
 
 .dog {
   width: 300px;
+}
+
+.fetching {
+  width: 30px;
+  margin: 20% auto;
+}
+
+.error {
+  background-color: #e97451;
+  color: white;
+  text-align: center;
+  width: 80%;
+  margin: auto;
+  padding: 25px;
+  border: 2px solid darkred;
+  border-radius: 10px;
 }
