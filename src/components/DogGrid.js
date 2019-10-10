@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import Masonry from "react-masonry-component";
 import { getDogs } from "../actions";
 import Select from "./Select";
 
@@ -17,6 +18,9 @@ function DogGrid(props) {
     setAPI(`https://dog.ceo/api/breed/${e.target.value}/images`);
   };
 
+  const masonryOptions = {
+    transitionDuration: 0
+  };
   return (
     <>
       <div className="header">
@@ -24,12 +28,20 @@ function DogGrid(props) {
         <Select handleChange={handleChange} fetchDogs={fetchDogs} />
       </div>
       {props.isFetching && <p className="fetching">Fetching...</p>}
-      <div className="grid">
-        {props.data.map(dog => (
-          <div className="container">
-            <img className="dog" key={dog} src={dog} />
-          </div>
-        ))}
+      <div className="masonry-container">
+        <Masonry
+          className="grid"
+          elementType={"div"} // default 'div'
+          options={masonryOptions} // default {}
+          disableImagesLoaded={false} // default false
+          updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
+        >
+          {props.data.map(dog => (
+            <div className="container">
+              <img className="dog" key={dog} src={dog} />
+            </div>
+          ))}
+        </Masonry>
       </div>
       {props.error && <p className="error">{props.error}</p>}
     </>

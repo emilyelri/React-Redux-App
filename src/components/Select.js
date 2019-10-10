@@ -4,6 +4,9 @@ const Select = props => {
   return (
     <form onSubmit={props.fetchDogs}>
       <select onChange={props.handleChange}>
+        <option value="random" selected>
+          random
+        </option>
         <option value="affenpinscher">affenpinscher</option>
         <option value="african">african</option>
         <option value="airedale">airedale</option>
